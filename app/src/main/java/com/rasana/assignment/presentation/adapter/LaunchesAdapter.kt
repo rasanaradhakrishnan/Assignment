@@ -18,7 +18,7 @@ class LaunchesAdapter(context: Context, private val onDisplayItemClickListener: 
 
     private companion object {
         const val VIEW_TYPE_HEADER = 0
-        const val VIEW_TYPE_PAYEE = 1
+        const val VIEW_TYPE_LAUNCHES = 1
     }
 
     var allLaunches: List<DisplayRow> = emptyList()
@@ -36,15 +36,11 @@ class LaunchesAdapter(context: Context, private val onDisplayItemClickListener: 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == VIEW_TYPE_PAYEE) {
+        return if (viewType == VIEW_TYPE_LAUNCHES) {
             LaunchViewHolder(layoutInflater.inflate(R.layout.item_launch, parent, false))
         } else {
             LaunchHeaderHolder(layoutInflater.inflate(R.layout.item_launch_header, parent, false))
         }
-    }
-
-    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
-        super.onViewRecycled(holder)
     }
 
     override fun getItemCount(): Int {
@@ -54,7 +50,7 @@ class LaunchesAdapter(context: Context, private val onDisplayItemClickListener: 
     override fun getItemViewType(position: Int): Int {
         return when (allLaunches[position]) {
             is DisplayRow.Header -> VIEW_TYPE_HEADER
-            is DisplayRow.DisplayItem -> VIEW_TYPE_PAYEE
+            is DisplayRow.DisplayItem -> VIEW_TYPE_LAUNCHES
         }
     }
 
