@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="16dp"
+              android:background="?android:selectableItemBackground"
+              android:clickable="true"
+              android:focusable="true"
+              android:orientation="horizontal"
+              android:id="@+id/payeeContainerParent"
+              android:padding="8dp">
+
+    <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/primaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:textColor="@color/colorPrimary"
+                tools:text="City of Gold Coast"/>
+
+        <TextView
+                android:id="@+id/secondaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:textColor="@color/colorPrimary"
+                tools:text="Toll and highway security"/>
+
+        <TextView
+                android:id="@+id/identifierText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                tools:text="918294 928491823"/>
+    </LinearLayout>
+</LinearLayout>
