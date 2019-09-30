@@ -31,3 +31,18 @@ fun mapLaunchesToRow(launches: List<DisplayLaunches>, addHeaders: Boolean): List
 
     return payeeRows
 }
+
+fun mapLaunchesToRowByDate(launches: List<DisplayLaunches>, addHeaders: Boolean): List<DisplayRow> {
+    var currentSectionTitle: String? = null
+    val payeeRows = mutableListOf<DisplayRow>()
+
+    launches.forEach {
+        if (addHeaders && it.launchDate != currentSectionTitle) {
+            currentSectionTitle = it.launchDate
+            payeeRows.add(DisplayRow.Header(currentSectionTitle.toString()))
+        }
+        payeeRows.add(DisplayRow.DisplayItem(it))
+    }
+
+    return payeeRows
+}

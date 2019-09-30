@@ -6,5 +6,5 @@ import io.reactivex.Single
  * Created by Rasana.
  */
 interface LaunchesRepository {
-    fun getLaunchesList(): Single<List<AllLaunches>>
+    fun getLaunchesList(sortOrder: String): Single<List<AllLaunches>>
 }

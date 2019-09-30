@@ -8,5 +8,5 @@ import javax.inject.Inject
  */
 class LaunchesUseCase @Inject constructor(private val launchesRepository: LaunchesRepository) {
 
-    fun getAllLaunches(): Single<List<AllLaunches>> = launchesRepository.getLaunchesList()
+    fun getAllLaunches(sortOrder: String): Single<List<AllLaunches>> = launchesRepository.getLaunchesList(sortOrder)
 }

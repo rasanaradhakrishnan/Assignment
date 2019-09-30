@@ -8,7 +8,6 @@
               android:clickable="true"
               android:focusable="true"
               android:orientation="horizontal"
-              android:id="@+id/payeeContainerParent"
               android:padding="8dp">
 
     <LinearLayout

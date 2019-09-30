@@ -1,6 +1,7 @@
 package com.rasana.assignment.presentation.view
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,22 +27,44 @@ class MainActivity : AppCompatActivity(), MainPresenter.DisplayResults, Launches
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        applicationComponent.inject(this)
-
-        presenter.inject(this)
-        presenter.onCreate()
-
         adapter = LaunchesAdapter(this, this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        applicationComponent.inject(this)
+
+        sortByName.setOnClickListener { presenter.onClickSortByName() }
+
+        sortByDate.setOnClickListener { presenter.onClickSortByDate() }
+
+        presenter.inject(this)
+        presenter.onCreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.onStop()
     }
 
     override fun showLaunches(allLaunches: List<DisplayRow>){
         adapter.allLaunches = allLaunches
+        adapter.notifyDataSetChanged()
     }
 
     override fun onDisplayItemClicked(displayItem: DisplayLaunches) {
         Toast.makeText(this, R.string.navigate, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showLoading() {
+        loadingIndicator.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        loadingIndicator.visibility = View.GONE
     }
 }

@@ -8,7 +8,15 @@ import com.rasana.assignment.domain.AllLaunches as DomainLaunches
 fun mapDataToDomainLaunches(allLaunches: List<AllLaunches>): List<DomainLaunches> {
     val domainLaunches = mutableListOf<DomainLaunches>()
     allLaunches.forEach {
-        domainLaunches.add(DomainLaunches(it.missionName, it.launchYear, it.launchDate, it.launchSuccess, it.details))
+        domainLaunches.add(
+            DomainLaunches(
+                it.mission_name,
+                it.launch_year,
+                it.launch_date_utc,
+                it.launch_success,
+                it.details
+            )
+        )
     }
     return domainLaunches
 }
