@@ -14,7 +14,10 @@ fun mapDomainToPresentation(launches: AllLaunches): DisplayLaunches =
             launchYear,
             launchDate,
             launchSuccess,
-            details)
+            details,
+            rocketName,
+            rocketType,
+            wikipediaLink)
     }
 
 fun mapLaunchesToRow(launches: List<DisplayLaunches>, addHeaders: Boolean): List<DisplayRow> {
@@ -37,8 +40,8 @@ fun mapLaunchesToRowByDate(launches: List<DisplayLaunches>, addHeaders: Boolean)
     val launchesRows = mutableListOf<DisplayRow>()
 
     launches.forEach {
-        if (addHeaders && it.launchDate != currentSectionTitle) {
-            currentSectionTitle = it.launchDate
+        if (addHeaders && !it.launchYear.equals(currentSectionTitle)) {
+            currentSectionTitle = it.launchYear
             launchesRows.add(DisplayRow.Header(currentSectionTitle.toString()))
         }
         launchesRows.add(DisplayRow.DisplayItem(it))

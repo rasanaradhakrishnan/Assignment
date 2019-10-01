@@ -1,5 +1,6 @@
 package com.rasana.assignment.presentation.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -13,7 +14,6 @@ import com.rasana.assignment.presentation.model.DisplayRow
 import com.rasana.assignment.presentation.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
-
 /**
  * Created by Rasana.
  */
@@ -56,9 +56,8 @@ class MainActivity : AppCompatActivity(), MainPresenter.DisplayResults, Launches
         adapter.notifyDataSetChanged()
     }
 
-    override fun onDisplayItemClicked(displayItem: DisplayLaunches) {
-        Toast.makeText(this, R.string.navigate, Toast.LENGTH_LONG).show()
-    }
+    override fun onDisplayItemClicked(displayItem: DisplayLaunches) =
+        startActivity(Intent(this, DetailsActivity::class.java).putExtra("details", displayItem))
 
     override fun showLoading() {
         loadingIndicator.visibility = View.VISIBLE

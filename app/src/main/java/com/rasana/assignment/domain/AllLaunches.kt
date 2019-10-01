@@ -7,4 +7,7 @@ class AllLaunches (val missionName: String?,
                    val launchYear: String?,
                    val launchDate: String?,
                    val launchSuccess: Boolean? = false,
-                   val details: String?)
+                   val details: String?,
+                   val rocketName: String?,
+                   val rocketType: String?,
+                   val wikipediaLink: String?)

@@ -22,7 +22,7 @@ class MainPresenter @Inject constructor(private val launchesUseCase: LaunchesUse
 
     private companion object {
         const val SORT_BY_NAME = "mission_name"
-        const val SORT_BY_DATE = "launch_date"
+        const val SORT_BY_DATE = "launch_date_utc"
     }
 
     fun inject(displayResults: DisplayResults) {

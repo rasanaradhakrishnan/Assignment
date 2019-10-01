@@ -3,4 +3,6 @@
     <string name="navigate">Navigate to next screen</string>
     <string name="sort_by_name">Sort by Name</string>
     <string name="sort_by_date">Sort by Date</string>
+    <string name="rocket_name">Rocket name: %s</string>
+    <string name="rocket_type">Rocket type: %s</string>
 </resources>
